@@ -56,15 +56,5 @@ module.exports = {
         static: path.join(__dirname, 'dist'),
         compress: true,
         port: 8000
-    },
-    ignoreWarnings: [
-        {
-            module: /node_modules\/bootstrap\/scss\/_type.scss/,
-            message: /Deprecation Warning/
-        },
-        {
-            module: /node_modules\/bootstrap\/scss\/_reboot.scss/,
-            message: /Deprecation Warning/
-        }
-    ]
+    }
 };
