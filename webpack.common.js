@@ -38,7 +38,7 @@ module.exports = {
     },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'build')
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -47,13 +47,18 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-                { from: 'public/manifest.json', to: 'manifest.json' }
+                { from: 'public/manifest.json', to: 'manifest.json' },
+                {
+                    from: 'public/_redirects',
+                    to: '_redirects',
+                    toType: 'file'
+                }
             ]
         })
     ],
     devServer: {
         historyApiFallback: true,
-        static: path.join(__dirname, 'dist'),
+        static: path.join(__dirname, 'build'),
         compress: true,
         port: 8000
     }
